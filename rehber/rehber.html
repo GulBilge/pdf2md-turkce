@@ -1,0 +1,148 @@
+<html>
+<head>
+<style>
+body { font-family: sans-serif; font-size: 10.5pt; color: #1f2430; line-height: 1.45; }
+h1 { font-size: 22pt; color: #6b3fa0; margin-bottom: 0; }
+.sub { color: #6b7080; font-size: 11pt; margin-top: 2pt; }
+h2 { font-size: 14pt; color: #6b3fa0; margin-top: 16pt; margin-bottom: 4pt; border-bottom: 1px solid #d9cdea; }
+h3 { font-size: 11.5pt; margin-top: 10pt; margin-bottom: 2pt; }
+.box { background-color: #f5f0fb; border: 1px solid #d9cdea; padding: 8pt; margin: 6pt 0; }
+.warn { background-color: #fff6e5; border: 1px solid #f0d49b; padding: 8pt; margin: 6pt 0; }
+code { font-family: monospace; background-color: #eef0f4; font-size: 9.5pt; }
+pre { font-family: monospace; font-size: 9pt; background-color: #eef0f4; padding: 6pt; }
+td, th { border: 1px solid #d0d4dc; padding: 4pt; font-size: 9.5pt; vertical-align: top; }
+th { background-color: #f5f0fb; text-align: left; }
+.foot { color: #6b7080; font-size: 9pt; margin-top: 18pt; }
+</style>
+</head>
+<body>
+
+<h1>pdf2md</h1>
+<p class="sub">PDF dosyalarınızı Claude'un kolayca okuyabileceği temiz metne çevirir.<br/><b>Bilge Gül Koç'tan hediye</b></p>
+
+<div class="box">
+<b>Neden?</b> Claude'a PDF yüklemek yerine pdf2md'nin ürettiği <code>.md</code> dosyasını yüklediğinizde
+Claude <b>daha az kullanım hakkı harcar</b>, <b>daha hızlı cevap verir</b> ve tablolar, başlıklar gibi yapıları
+daha doğru anlar. Dönüştürme işlemi tamamen <b>sizin bilgisayarınızda ve ücretsiz</b> yapılır; dosyalarınız hiçbir yere gönderilmez.
+</div>
+
+<p>Paket iki parçadan oluşur:</p>
+<table>
+<tr><th>Parça</th><th>Ne işe yarar?</th><th>Nerede?</th></tr>
+<tr><td><b>pdf2md uygulaması</b></td><td>Çok sayıda PDF'i tek seferde <code>.md</code> dosyasına çevirir.</td><td>Bilgisayarınızda</td></tr>
+<tr><td><b>pdf2md skill'i</b></td><td>Claude'un bu dosyalarla verimli çalışmasını ve sorunlu sayfaları düzeltmesini sağlar.</td><td>claude.ai hesabınızda</td></tr>
+</table>
+
+<h2>1. Uygulamanın kurulumu (bir kez)</h2>
+
+<p><b>Gerekenler:</b> Windows 10/11 veya macOS (Apple M1/M2/M3/M4 işlemcili), en az 8 GB RAM,
+yaklaşık 4 GB boş disk alanı ve internet bağlantısı (yalnızca kurulum sırasında).</p>
+
+<h3>Adım 1 — Zip dosyasını açın</h3>
+<p><code>pdf2md.zip</code> dosyasını Masaüstü veya Belgeler gibi kolay bulacağınız bir yere çıkarın.
+<b>Windows:</b> dosyaya sağ tıklayın → <i>Tümünü ayıkla</i>. <b>Mac:</b> dosyaya çift tıklayın.</p>
+<p>Açılan <code>pdf2md</code> klasöründe şunları göreceksiniz:</p>
+<pre>
+pdf2md/
+  1-KURULUM (Windows).bat      &lt;- Windows'ta bir kez çift tıklayın
+  1-KURULUM (Mac).command      &lt;- Mac'te bir kez çift tıklayın
+  2-DONUSTUR (Windows).bat     &lt;- her kullanımda çift tıklayın
+  2-DONUSTUR (Mac).command
+  PDF-BURAYA/                  &lt;- PDF'lerinizi buraya koyun
+  SONUCLAR/                    &lt;- .md dosyaları buraya gelir
+  app/                         &lt;- uygulamanın kendisi (dokunmayın)
+</pre>
+
+<h3>Adım 2 — Kurulum dosyasına çift tıklayın</h3>
+<p><b>Windows:</b> <code>1-KURULUM (Windows)</code> dosyasına çift tıklayın.</p>
+<div class="warn">
+<b>"Windows bilgisayarınızı korudu" uyarısı çıkarsa:</b> <i>Ek bilgi</i> yazısına tıklayın, ardından <i>Yine de çalıştır</i> düğmesine basın.
+Bu uyarı, dosya internetten indirildiği için çıkar.
+</div>
+<p><b>Mac:</b> <code>1-KURULUM (Mac)</code> dosyasına <b>sağ tıklayın → Aç</b> seçin, çıkan pencerede tekrar <b>Aç</b>'a basın.</p>
+<div class="warn">
+<b>Mac "açılamıyor" veya "geliştirici doğrulanamadı" derse:</b> Sistem Ayarları → Gizlilik ve Güvenlik bölümüne gidin,
+aşağıda çıkan <i>Yine de Aç</i> düğmesine basın. Bu yalnızca ilk seferde gerekir.
+</div>
+
+<p>Siyah bir pencere açılır ve kurulum başlar. <b>5-15 dakika</b> sürebilir, pencereyi kapatmayın.
+Sonunda <b>"Kurulum tamamlandı!"</b> yazısını gördüğünüzde herhangi bir tuşa basarak pencereyi kapatabilirsiniz.</p>
+
+<h2>2. PDF'leri dönüştürme (her seferinde)</h2>
+<table>
+<tr><th>#</th><th>Ne yapılır?</th></tr>
+<tr><td>1</td><td>Dönüştürmek istediğiniz PDF'leri <code>PDF-BURAYA</code> klasörüne kopyalayın. İstediğiniz kadar dosya koyabilirsiniz.</td></tr>
+<tr><td>2</td><td><code>2-DONUSTUR</code> dosyasına çift tıklayın (Windows veya Mac olanına).</td></tr>
+<tr><td>3</td><td>Pencerede her dosyanın ilerlemesini görürsünüz. Bitince <code>SONUCLAR</code> klasörü kendiliğinden açılır.</td></tr>
+</table>
+
+<p>Pencerede şuna benzer satırlar görürsünüz:</p>
+<pre>
+[1/3] rapor.pdf ... ✓ (12 sayfa, 30 sn, kalite %100)
+[2/3] sunum.pdf ... ⚠ (20 sayfa, 45 sn, kalite %93, kontrol et: sayfa 7)
+[3/3] taranmis.pdf ... ⚠ (2 sayfa, 50 sn, 2 sayfa OCR, kontrol et: sayfa 1, 2)
+</pre>
+<ul>
+<li><b>✓</b> — Dosya sorunsuz dönüştürüldü.</li>
+<li><b>kalite %</b> — PDF'teki metnin yüzde kaçının çıktıya aktarıldığı. %95 ve üstü çok iyidir. Taranmış sayfalar bu orana dahil değildir.</li>
+<li><b>OCR</b> — Taranmış (fotokopi, fotoğraf) sayfalar okundu. Bu sayfalar daha yavaş işlenir ve otomatik kontrol edilemediği için her zaman <b>kontrol et</b> listesine eklenir.</li>
+<li><b>⚠ kontrol et</b> — Bazı sayfalar otomatik kontrolden geçemedi. Aşağıdaki 4. bölüme bakın.</li>
+</ul>
+
+<p>Daha önce dönüştürdüğünüz PDF'ler tekrar işlenmez. Bu yüzden <code>PDF-BURAYA</code> klasörüne yeni dosya ekleyip
+tekrar çalıştırmanız yeterlidir.</p>
+
+<h3>Sonuç klasörü</h3>
+<pre>
+SONUCLAR/
+  rapor/
+    rapor.md          &lt;- Claude'a yükleyeceğiniz dosya
+    images/           &lt;- PDF'teki görseller (varsa)
+    KONTROL-ET/       &lt;- sadece sorunlu sayfa varsa
+    rapor.json        &lt;- teknik rapor (dokunmanıza gerek yok)
+</pre>
+
+<h2>3. Skill'i claude.ai'ye yükleme (bir kez)</h2>
+<table>
+<tr><th>#</th><th>Ne yapılır?</th></tr>
+<tr><td>1</td><td><b>claude.ai</b> adresine girin (veya Claude masaüstü uygulamasını açın).</td></tr>
+<tr><td>2</td><td>Sol alttaki adınıza tıklayın → <b>Ayarlar (Settings)</b> → <b>Yetenekler (Capabilities)</b> bölümünde <b>Kod çalıştırma ve dosya oluşturma (Code execution and file creation)</b> seçeneğini açın.</td></tr>
+<tr><td>3</td><td><b>Customize</b> → <b>Skills</b> sayfasına gidin.</td></tr>
+<tr><td>4</td><td><b>+</b> düğmesine basın → <b>+ Create skill</b> → <b>Upload a skill</b> seçin ve <code>pdf2md-skill.zip</code> dosyasını seçin.</td></tr>
+<tr><td>5</td><td>Listede <b>pdf2md</b> görünür ve açık olur. Hepsi bu kadar.</td></tr>
+</table>
+<p class="sub">Not: Skill'ler ücretsiz plan dahil tüm Claude planlarında kullanılabilir. Menü adları Claude'un güncellemeleriyle değişebilir.</p>
+
+<h2>4. Claude ile kullanım</h2>
+
+<h3>Belgeyle çalışmak</h3>
+<p>Yeni bir sohbette <code>.md</code> dosyasını sürükleyip bırakın ve sorunuzu yazın. Örnekler:</p>
+<ul>
+<li><i>"Bu raporun özetini çıkar."</i></li>
+<li><i>"3. bölümdeki tabloyu yorumla."</i></li>
+<li><i>"Bu üç dosyada fiyatlandırmayla ilgili ne yazıyor?"</i></li>
+</ul>
+<p>Claude cevaplarında bilginin PDF'in kaçıncı sayfasında olduğunu belirtir.</p>
+
+<h3>Sorunlu sayfaları düzeltmek (⚠ gördüyseniz)</h3>
+<table>
+<tr><th>#</th><th>Ne yapılır?</th></tr>
+<tr><td>1</td><td>Dosyanın klasöründeki <code>KONTROL-ET</code> klasörünü açın. İçinde sorunlu sayfaların görselleri (<code>sayfa-007.png</code> gibi) vardır.</td></tr>
+<tr><td>2</td><td>Claude'da yeni bir sohbet açın. <code>.md</code> dosyasını <b>ve</b> bu görselleri sohbete sürükleyin.</td></tr>
+<tr><td>3</td><td><b>"pdf2md: bu sayfaları düzelt"</b> yazın.</td></tr>
+<tr><td>4</td><td>Claude düzeltilmiş dosyayı verir. İndirip eski dosyanın yerine koyun.</td></tr>
+</table>
+
+<h3>Uygulamayı kuramadıysanız</h3>
+<p>Küçük PDF'leri doğrudan Claude'a yükleyip <b>"pdf2md: bunu markdown'a çevir"</b> yazabilirsiniz.
+Bu yol çalışır ama daha yavaştır ve kullanım hakkınızdan daha çok harcar. Çok sayfalı belgeler için uygulamayı kullanın.</p>
+
+<h2>Sık sorulan sorular</h2>
+<p><b>Dönüştürme çok yavaş.</b> Taranmış sayfalar ve formül içeren akademik makaleler daha uzun sürer. Normal PDF'lerde sayfa başına birkaç saniye beklenir.</p>
+<p><b>Bir PDF "HATA" verdi.</b> Dosya şifreli veya bozuk olabilir. PDF'i açıp "Farklı kaydet" ile yeni bir kopya oluşturup tekrar deneyin.</p>
+<p><b>Türkçe karakterler bozuk çıktı.</b> Bazı PDF'lerin metin katmanı hatalıdır. Bu durumda dosya genellikle ⚠ ile işaretlenir; düzeltme adımlarını uygulayın.</p>
+<p><b>Tekrar kurmam gerekir mi?</b> Hayır. Kurulum bir kez yapılır.</p>
+
+<p class="foot">pdf2md · Bilge Gül Koç'tan hediye · Sorularınız için Bilge'ye yazabilirsiniz.</p>
+</body>
+</html>

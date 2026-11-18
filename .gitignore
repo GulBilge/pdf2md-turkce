@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+samples/
+scratch/
+SONUCLAR/
+PDF-BURAYA/*.pdf
+dist/
+test_in/
+test_big/

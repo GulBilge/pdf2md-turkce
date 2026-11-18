@@ -8,9 +8,9 @@ PDF dosyalarını Claude'un verimli okuyabileceği temiz Markdown'a çeviren yer
 
 ## İndir ve kullan
 
-1. İki dosyayı indirin:
-   - **[pdf2md.zip](https://github.com/GulBilge/pdf2md-turkce/raw/main/indir/pdf2md.zip)** → bilgisayarınıza kurulan uygulama (içinde adım adım `NASIL-KULLANILIR.pdf` rehberi var)
-   - **[pdf2md-skill.zip](https://github.com/GulBilge/pdf2md-turkce/raw/main/indir/pdf2md-skill.zip)** → claude.ai'ye yüklenen skill
+1. **[Son sürüm sayfasından](https://github.com/GulBilge/pdf2md-turkce/releases/latest)** iki dosyayı indirin:
+   - **[pdf2md.zip](https://github.com/GulBilge/pdf2md-turkce/releases/latest/download/pdf2md.zip)** → bilgisayarınıza kurulan uygulama (içinde adım adım `NASIL-KULLANILIR.pdf` rehberi var)
+   - **[pdf2md-skill.zip](https://github.com/GulBilge/pdf2md-turkce/releases/latest/download/pdf2md-skill.zip)** → claude.ai'ye yüklenen skill
 2. `pdf2md.zip` dosyasını açın ve `NASIL-KULLANILIR.pdf` rehberindeki adımları izleyin.
 3. claude.ai'de **Customize → Skills** bölümünden `pdf2md-skill.zip` dosyasını yükleyin (Ayarlar → Yetenekler'de kod çalıştırma açık olmalı).
 
